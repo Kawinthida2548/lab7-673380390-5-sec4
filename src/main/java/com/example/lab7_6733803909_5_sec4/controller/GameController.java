@@ -35,11 +35,11 @@ public class GameController {
     }
 
     @PostMapping("/save")
-public String saveGame(@ModelAttribute("game") Game game, RedirectAttributes redirectAttributes) {
-    gameService.saveGame(game);
-    redirectAttributes.addFlashAttribute("message", "เพิ่มเกม \"" + game.getTitle() + "\" สำเร็จ");
-    return "redirect:/games";
-}
+    public String saveGame(@ModelAttribute("game") Game game, RedirectAttributes redirectAttributes) {
+        gameService.saveGame(game);
+        redirectAttributes.addFlashAttribute("message", "เพิ่มเกม \"" + game.getTitle() + "\" สำเร็จ");
+        return "redirect:/games";
+    }
 
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model) {
@@ -48,12 +48,12 @@ public String saveGame(@ModelAttribute("game") Game game, RedirectAttributes red
     }
 
    @PostMapping("/update/{id}")
-public String updateGame(@PathVariable Long id, @ModelAttribute("game") Game game,
-                          RedirectAttributes redirectAttributes) {
-    gameService.updateGame(id, game);
-    redirectAttributes.addFlashAttribute("message", "แก้ไขเกม \"" + game.getTitle() + "\" สำเร็จ");
-    return "redirect:/games";
-}
+    public String updateGame(@PathVariable Long id, @ModelAttribute("game") Game game,
+                              RedirectAttributes redirectAttributes) {
+        gameService.updateGame(id, game);
+        redirectAttributes.addFlashAttribute("message", "แก้ไขเกม \"" + game.getTitle() + "\" สำเร็จ");
+        return "redirect:/games";
+    }
 
     @GetMapping("/delete/{id}")
     public String showDeleteConfirm(@PathVariable Long id, Model model) {
@@ -62,10 +62,10 @@ public String updateGame(@PathVariable Long id, @ModelAttribute("game") Game gam
     }
 
    @PostMapping("/delete/{id}")
-public String deleteGame(@PathVariable Long id, RedirectAttributes redirectAttributes) {
-    gameService.deleteGame(id);
-    redirectAttributes.addFlashAttribute("message", "ลบเกมสำเร็จ");
-    return "redirect:/games";
-}
+    public String deleteGame(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+        gameService.deleteGame(id);
+        redirectAttributes.addFlashAttribute("message", "ลบเกมสำเร็จ");
+        return "redirect:/games";
+    }
 
 }
